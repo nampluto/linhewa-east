@@ -1,6 +1,5 @@
 *~
 book.pdf
 book2.pdf
-# *.ipynb
-*.csv
-!data.csv
+.venv-py312
+_*
