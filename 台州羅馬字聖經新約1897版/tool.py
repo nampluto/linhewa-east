@@ -150,7 +150,7 @@ class Books(list[dict]):
                         print(f"han: " + show_han)
 
     def fenci(self, zi:bool=False) -> Counter|None:
-        """对 books 里的 verses 进行分词或分字统计。
+        """对 books 里的 书名 和 verses 进行分词或分字统计。
 
         参数: 
             `zi`: 是否分字，默认为分词。
@@ -160,6 +160,22 @@ class Books(list[dict]):
         counter = Counter()
 
         for book in self:
+            # 处理书名
+            book_name = {
+                    'lat': book['book_name']['lat'], 
+                    'han':book['book_name']['han']
+            }
+            (list_lat_zi, list_han_zi) = Books._verse_fenzi(book_name)
+            if len(list_han_zi) != len(list_lat_zi):
+                print(f"🔴 {book['book_name']['han']}: 书名翻译字数与原文不符：")
+                return None
+            if zi:
+                counter.update(list(zip(list_lat_zi, list_han_zi)))
+            else:
+                (list_lat_ci, list_han_ci) = Books._verse_fenci(book_name, list_han_zi)
+                counter.update(list(zip(list_lat_ci, list_han_ci)))
+
+            # 处理小节
             for chapter in book['chapters']:
                 for verse in chapter['verses']:
                     # 先判断原文和译文的字数是否统一
