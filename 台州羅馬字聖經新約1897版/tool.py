@@ -146,8 +146,8 @@ class Books(list[dict]):
                         han_span = ci_info['han_span']
                         show_lat = show_lat[0:lat_span[0]] + "👉🏻" + show_lat[lat_span[0]:lat_span[1]] + "👈🏻" + show_lat[lat_span[1]:]
                         show_han = show_han[0:han_span[0]] + "👉" + show_han[han_span[0]:han_span[1]] + "👈" + show_han[han_span[1]:]
-                        print(f"lat: " + show_lat)
-                        print(f"han: " + show_han)
+                    print(f"lat: " + show_lat)
+                    print(f"han: " + show_han)
 
     def fenci(self, zi:bool=False) -> Counter|None:
         """对 books 里的 书名 和 verses 进行分词或分字统计。
