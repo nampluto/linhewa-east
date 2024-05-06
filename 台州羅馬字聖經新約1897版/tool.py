@@ -58,9 +58,8 @@ class LineInfo:
             self.prefix = ""
             self.content = "------"
             self.offset = 0
-        elif line.startswith("[^") and line.find("]: ") != -1:
+        elif line.startswith("[^") and (r := line.find("]: ")) != -1:
             self.type = LineInfo.FOOTNOTE
-            r = line.find("]: ")
             self.prefix = line[0:r+3]
             self.content = line[r+3:]
             self.offset = r + 3
@@ -121,7 +120,7 @@ class Books(list[dict]):
             print("🔴 请输入正确的内容！")
             return 
         if len(q_list_lat) != len(q_list_han):
-            print(f"🔴 输入的分字数量不一致！"
+            print(f"🔴 输入内容的分字数量不相符！"
                   f"lat: {len(q_list_lat)}, han: {len(q_list_han)}")
             return
         # 查找
@@ -129,7 +128,7 @@ class Books(list[dict]):
             for chap_index,chapter in enumerate(book['chapters']):
                 for verse_no,verse in enumerate(chapter['verses']):
                     details = Books._verse_fenci_with_details(verse)
-                    # [{'lat':xx, 'lat_span':xx, 'han':xx, 'han_span':xxx}, ...]
+                    # verse: [{'lat':xx, 'lat_span':xx, 'han':xx, 'han_span':xxx}, ...]
                     select = []
                     for ci_info in details:
                         if ci_info['lat'] == lat_ci and ci_info['han'] == han_ci:
@@ -194,18 +193,27 @@ class Books(list[dict]):
         return counter
 
     def get_verse(self, book_no:int|str, chapter_no:int, verse_no:int):
-        """获取一个小节。no 从 1 开始，但 verse_no 可设为 0 来获取概述小节。"""
-        if type(book_no) == str and not book_no.isdigit():
-            book_index = book_names.find_index(book_no)
-        elif type(book_no) == int or book_no.isdigit():
+        """获取一个小节。*_no 都从 1 开始，但 verse_no 可设为 0 来获取概述小节。"""
+        if type(book_no) == int or (type(book_no)==str and book_no.isdigit()):
             book_no = int(book_no)
-            book_index = book_no - 1
+        elif type(book_no) == str:
+            book_no = book_names.find_book_no(book_no)
+            if book_no == None:
+                print("输入内容有误！")
+                return None
         else:
             raise TypeError("book_no 参数只支持 整数编号 或 书名。")
+        book_index = book_no - 1
         chapter_index = chapter_no - 1
-        if book_index<0 or chapter_index<0:
-            return None
         verse_index = verse_no  # 0 表示概述小节
+        if book_index<0 or chapter_index<0 or verse_index<0:
+            print("未找到该小节！")
+            return None
+        if book_index>=len(self) \
+            or chapter_index>=len(self[book_index]['chapters'])\
+                or verse_index>=len(self[book_index]['chapters'][chapter_index]['verses']):
+            print("未找到该小节！")
+            return None
         verse = self[book_index]['chapters'][chapter_index]['verses'][verse_index]
         return verse
 
@@ -223,7 +231,7 @@ class Books(list[dict]):
     _re_note = re.compile(r"\[.+?\]")    # 用于 去除 verse 中的 [...]
     _re_lat_zi = re.compile(r"['a-zA-ZÜüÔôÖöÆæ]+")
     _re_han_zi = re.compile(r"\{.+?\}|[\u4E00-\u9FA5❓□㾎𧮙䫲𤖼𠡒𣥼䂸㔶䥛䀹㬹㧒]")
-    _re_lat_ci = re.compile(r"['a-zA-ZÜüÔôÖöÆæ-]+")
+    _re_lat_ci = re.compile(r"['a-zA-ZÜüÔôÖöÆæ]['a-zA-ZÜüÔôÖöÆæ-]*")
 
     def _verse_fenzi(verse:dict)->tuple[list,list]:
         """对单条 verse 进行分字。
@@ -612,51 +620,40 @@ def han2lat(han:str, fenzi:Counter) -> str:
 
 class book_names:
 
-    def find_index(book_name:str)-> int|None:
-        book_name = book_name.strip()
-        if book_name in book_names.book_names_zh_simp:
-            return book_names.book_names_zh_simp.index(book_name)
-        if book_name in book_names.book_names_zh_trad:
-            return book_names.book_names_zh_trad.index(book_name)
-        book_name = book_name.lower()
-        if book_name in book_names.book_names_lat:
-            return book_names.book_names_zh_simp.index(book_name)
-        book_name = book_name.rstrip('. ').replace("'","")
-        if book_name in book_names.book_names_lat_abbr:
-            return book_names.book_names_zh_simp.index(book_name)
+    def find_book_no(book_name:str)-> int|None:
+        book_name = book_name.strip().rstrip('.').replace('\'', '')
+
+        for no, keywords in book_names.no_and_keywords:
+            if book_name in keywords:
+                return no
         return None
 
-    book_names_zh_simp = ['马太传福音书', '马可传福音书', '路加传福音书', '约翰传福音书', '使徒行传', 
-                '罗马书信', '哥林多书信 1', '哥林多书信 2', '加拉太书信', '以弗所书信', 
-                '腓立比书信', '歌罗西书信', '帖撒罗尼迦书信 1', '帖撒罗尼迦书信 2', '提摩太书信 1', 
-                '提摩太书信 2', '提多书信', '腓利门书信', '希伯来书信', '雅各书信', 
-                '彼得书信 1', '彼得书信 2', '约翰书信 1', '约翰书信 2', '约翰书信 3', 
-                '犹大书信', '默示录']
-
-    book_names_zh_trad = ['馬太傳福音書', '馬可傳福音書', '路加傳福音書', '約翰傳福音書', '使徒行傳', 
-                '羅馬書信', '哥林多書信 1', '哥林多書信 2', '加拉太書信', '以弗所書信', 
-                '腓立比書信', '歌羅西書信', '帖撒羅尼迦書信 1', '帖撒羅尼迦書信 2', '提摩太書信 1', 
-                '提摩太書信 2', '提多書信', '腓利門書信', '希伯來書信', '雅各書信', 
-                '彼得書信 1', '彼得書信 2', '約翰書信 1', '約翰書信 2', '約翰書信 3', 
-                '猶大書信', '默示錄']
-
-    book_names_lat_abbr = ["mt", "mk", "lk", "iö", "sd", "lm", "1 k", "2 k", "kô", "yf",
-                           "fl", "kl", "1 t", "2 t", "1d", "2d", "dt", "flm", "h", "nk",
-                           "1 p", "2 p", "1 iö", "2 iö", "3 iö", "yd", "mz"]
-
-    book_names_lat = ["mô-t'a djün foh-ing shü", "mô-k'o djün foh-ing shü", 
-                      'lu-kô djün foh-ing shü', "iah-'ön djün foh-ing shü", 
-                      "s-du 'ang-djün", 'lo-mô shü-sing', 
-                      '1 ko-ling-to shü-sing', '2 ko-ling-to shü-sing', 
-                      "kô-læh-t'a shü-sing", 'yi-feh-su shü-sing', 
-                      'fi-lih-pi shü-sing', 'ko-lo-si shü-sing', 
-                      "1 t'ih-sæh-lo-nyi-kô shü-sing", "2 t'ih-sæh-lo-nyi-kô shü-sing", 
-                      "1 di-mo-t'a shü-sing", "2 di-mo-t'a shü-sing", 
-                      'di-to shü-sing', 'fi-li-meng shü-sing', 
-                      'hyi-pah-le shü-sing', 'ngô-kôh shü-sing', 
-                      '1 pi-teh shü-sing', '2 pi-teh shü-sing', 
-                      "1 iah-'ön shü-sing", "2 iah-'ön shü-sing", 
-                      "3 iah-'ön shü-sing", 'yiu-da shü-sing', 
-                      "iah-'ön-keh moh-z-loh"]
-
-
+    no_and_keywords = {
+        1 :  ('太', 'Matt', '马太', '馬太', '马太福音', '馬太福音', '马太传福音书', '馬太傳福音書', "mô-t'a djün foh-ing shü", 'mt') ,
+        2 :  ('可', 'Mark', '马可', '馬可', '马可福音', '馬可福音', '马可传福音书', '馬可傳福音書', "mô-k'o djün foh-ing shü", 'mk') ,
+        3 :  ('路', 'Luke', '路加', '路加福音', '路加传福音书', '路加傳福音書', 'lu-kô djün foh-ing shü', 'lk') ,
+        4 :  ('約', '约', 'John', '约翰', '約翰', '约翰福音', '約翰福音', '约翰传福音书', '約翰傳福音書', "iah-'ön djün foh-ing shü", 'iö') ,
+        5 :  ('徒', 'Acts', '使徒', '使徒行传', '使徒行傳', "s-du 'ang-djün", 'sd') ,
+        6 :  ('羅', '罗', 'Rom', '罗马', '羅馬', '罗马书信', '羅馬書信', 'lo-mô shü-sing', 'lm') ,
+        7 :  ('林前', '1 Cor', '哥林多前', '哥林多1', '哥林多一', '哥林多上', '哥林多书信 1', '哥林多書信 1', '1 ko-ling-to shü-sing', '1 k') ,
+        8 :  ('林後', '林后', '2 Cor', '哥林多后', '哥林多後', '哥林多2', '哥林多二', '哥林多下', '哥林多书信 2', '哥林多書信 2', '2 ko-ling-to shü-sing', '2 k') ,
+        9 :  ('加', 'Gal', '加拉太', '加拉太书信', '加拉太書信', "kô-læh-t'a shü-sing", 'kô') ,
+        10 :  ('弗', 'Eph', '以弗所', '以弗所书信', '以弗所書信', 'yi-feh-su shü-sing', 'yf') ,
+        11 :  ('腓', 'Phil', '腓立比', '腓立比书信', '腓立比書信', 'fi-lih-pi shü-sing', 'fl') ,
+        12 :  ('西', 'Col', '歌罗西', '歌羅西', '歌罗西书信', '歌羅西書信', 'ko-lo-si shü-sing', 'kl') ,
+        13 :  ('帖前', '1 Thess', '帖撒前', '帖撒1', '帖撒一', '帖撒上', '帖撒罗尼迦前', '帖撒羅尼迦前', '帖撒罗尼迦书信 1', '帖撒羅尼迦書信 1', "1 t'ih-sæh-lo-nyi-kô shü-sing", '1 t') ,
+        14 :  ('帖後', '帖后', '2 Thess', '帖撒后', '帖撒後', '帖撒2', '帖撒二', '帖撒下', '帖撒罗尼迦后', '帖撒羅尼迦後', '帖撒罗尼迦书信 2', '帖撒羅尼迦書信 2', "2 t'ih-sæh-lo-nyi-kô shü-sing", '2 t') ,
+        15 :  ('提前', '1 Tim', '提摩太前', '提摩太1', '提摩太一', '提摩太上', '提摩太书信 1', '提摩太書信 1', "1 di-mo-t'a shü-sing", '1d') ,
+        16 :  ('提後', '提后', '2 Tim', '提摩太后', '提摩太後', '提摩太1', '提摩太二', '提摩太下', '提摩太书信 2', '提摩太書信 2', "2 di-mo-t'a shü-sing", '2d') ,
+        17 :  ('多', 'Titus', '提多', '提多书信', '提多書信', 'di-to shü-sing', 'dt') ,
+        18 :  ('門', '门', 'Philem', '腓利门', '腓利門', '腓利门书信', '腓利門書信', 'fi-li-meng shü-sing', 'flm') ,
+        19 :  ('來', '来', 'Heb', '希伯来', '希伯來', '希伯来书信', '希伯來書信', 'hyi-pah-le shü-sing', 'h') ,
+        20 :  ('雅', 'James', '雅各', '雅各书信', '雅各書信', 'ngô-kôh shü-sing', 'nk') ,
+        21 :  ('彼前', '1 Pet', '彼得前', '彼得1', '彼得一', '彼得上', '彼得书信 1', '彼得書信 1', '1 pi-teh shü-sing', '1 p') ,
+        22 :  ('彼後', '彼后', '2 Pet', '彼得后', '彼得後', '彼得2', '彼得二', '彼得下', '彼得书信 2', '彼得書信 2', '2 pi-teh shü-sing', '2 p') ,
+        23 :  ('約一', '约一', '1 John', '约翰1', '約翰1', '约翰一', '約翰一', '约翰上', '約翰上', '约翰书信 1', '約翰書信 1', "1 iah-'ön shü-sing", '1 iö') ,
+        24 :  ('約二', '约二', '2 John', '约翰2', '約翰2', '约翰二', '約翰二', '约翰中', '約翰中', '约翰书信 2', '約翰書信 2', "2 iah-'ön shü-sing", '2 iö') ,
+        25 :  ('約三', '约三', '3 John', '约翰3', '約翰3', '约翰三', '約翰三', '约翰下', '約翰下', '约翰书信 3', '約翰書信 3', "3 iah-'ön shü-sing", '3 iö') ,
+        26 :  ('猶', '犹', 'Jude', '犹大', '猶大', '犹大书信', '猶大書信', 'yiu-da shü-sing', 'yd') ,
+        27 :  ('啟', '启', 'Rev', '啓', '默',  '启示录', '啟示錄', '啓示錄', '默示录', '默示錄', "iah-'ön-keh moh-z-loh", 'mz') ,
+    }
