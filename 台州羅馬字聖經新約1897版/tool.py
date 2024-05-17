@@ -109,7 +109,7 @@ class Books(list[dict]):
     """
 
     # 目前只能查 分词。无法查分字或分词组成的词。
-    def find_relative_ci(self, lat_ci: str, han_ci: str) -> None:
+    def find_ci_pair(self, lat_ci: str, han_ci: str) -> None:
         """
         在 books 中查找 相互对应 的 lat_ci 和 han_ci，输出找到的内容。
         """
