@@ -1,13 +1,15 @@
 
 # 簡介
 
-此處文件是對 1897 年出版的台州羅馬字聖經新約《NGÔ-HE KYIU-CÜ  YIA-SU KYI-TOH-KEH  SING-IAH SHÜ (T'E-TSIU T'U-WA; DI-NYI-T'AO ING.)》（我許救主耶穌基督個新約書-台州土話，第二套印）的文本化。方便瞭解和研究當時的台州方言。
+此處文件是對 1897 年出版的台州羅馬字聖經新約《NGÔ-HE KYIU-CÜ  YIA-SU KYI-TOH-KEH  SING-IAH SHÜ (T'E-TSIU T'U-WA; DI-NYI-T'AO ING.)》（《我許救主耶穌基督個新約書-台州土話，第二套印》）的文本化。方便瞭解和研究當時的台州方言。
 
 據瞭解該書籍由在台州傳教的英國傳教士[路惠理](https://zh.wikipedia.org/wiki/路惠理)（W.D.Rudland）編寫。他參考了當時的[寧波話羅馬字](https://zh.wikipedia.org/wiki/宁波话教会罗马字)制定出[台州話羅馬字](https://zh.wikipedia.org/wiki/台州話羅馬字)，這應該也是最早的台州話拼音文字。根據 游汝傑《西洋传教士汉语方言学著作书目考述》，傳教士最早於 1880 年出版了台州羅馬字版 馬太福音，不久就出版了 四福音書，次年就出版了 新約。後來又陸續出版幾本舊約書卷，1897 年出版了 新約 第二版，即本項目所對應版本。最後於 1914 前後由其協助者將新舊約書卷彙集成聖經全冊。
 
 目前在[谷歌圖書](https://books.google.com/?hl=zh-CN)上能搜到和下載該書籍。且貌似是已經做過文字識別的，但準確率不高。
 
-在轉爲漢字的過程中主要是參考了 [godcom.net](http://www.godcom.net/)  和 [信望愛](https://bible.fhl.net/index.html) 等網站的多版本新約譯本，以及 [道在神州網站](https://daozaishenzhou.wordpress.com/) 所搜集的上海話、蘇州話、官話等漢字版本。這個網站也有台州羅馬字1897版本，是攝影版，對於谷歌版原文掃描不清晰的參考了此版進行修正。另外，還參考了寧波話羅馬字新約、英語-寧波話詞典《字語彙解》(An Anglo-Chinese Vocabulary of the Ningpo Dialect) 等等。這些資料對於研究十九世紀的漢語都是非常寶貴的。
+在轉爲漢字的過程中主要是參考了 [godcom.net](http://www.godcom.net/)  和 [信望愛](https://bible.fhl.net/index.html) 等網站的多版本新約譯本（爲了方便，做了本地化，現已刪除），以及 [道在神州網站](https://daozaishenzhou.wordpress.com/) 所搜集的上海話、蘇州話、官話等漢字版本。**這個網站也有台州羅馬字 1897 版本**，是攝影版，對於谷歌版部分頁面或內容掃描不清晰的參考了此版進行修正。另外，還參考了寧波話羅馬字新約、英語-寧波話詞典《字語彙解》(An Anglo-Chinese Vocabulary of the Ningpo Dialect) 等等。**這些資料對於研究十九世紀的漢語都是非常寶貴的**。
+
+部分用字說明請見 [編輯說明.md](漢字對照/編輯說明.md)。
 
 # 進度
 
