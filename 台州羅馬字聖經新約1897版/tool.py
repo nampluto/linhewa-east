@@ -254,7 +254,7 @@ class Books(list[dict]):
 
         参数 `list_han_zi`: 可选。表示已分好字的汉字列表。加快速度。
         
-        返回 (list_lat_zi, list_han_zi)
+        返回 (list_lat_ci, list_han_ci)
         """
         verse_lat = verse['lat'].lower()
         verse_lat = Books._re_note.sub("", verse_lat) # 去掉[...]
@@ -621,7 +621,7 @@ def han2lat(han:str, fenzi:Counter) -> str:
 class book_names:
 
     def find_book_no(book_name:str)-> int|None:
-        book_name = book_name.strip().rstrip('.').upper()
+        book_name = book_name.strip().rstrip('.').lower()
 
         for no, keywords in book_names.no_and_keywords:
             if book_name in keywords:

@@ -101,8 +101,8 @@
 1570,'ong-lo,紅❓,2
 6683,'ong-seh,紅色,1
 2102,'ong-shü,洪水,4
-852,'æh-tsæh,狹窄,4
-818,'æh-tsæh-keh,狹窄個,3
+852,'æh-tsæh,狹{?窄},4
+818,'æh-tsæh-keh,狹{?窄}個,3
 553,'æn,鹹,3
 21,'æn-deo,銜頭,2
 4508,'æn-ding,限定,3
@@ -179,7 +179,7 @@
 6723,bah-mô,白馬,2
 3825,bah-nyih,白日,2
 3303,bah-ts'iu,白抽,1
-2624,bah-væh,白{沫},3
+2624,bah-væh,白{汎},3
 436,bang-djôh,碰着,13
 3109,bao,暴,1
 2630,bao,抱,4
@@ -548,7 +548,7 @@
 1071,di-ih,第一,15
 2697,di-ih-diao,第一條,1
 5176,di-ih-fu,第一副,5
-6500,di-ih-k'o,第一{抲},1
+6500,di-ih-k'o,第一{?抲},1
 6556,di-ih-ke,第一個,2
 6736,di-ih-t'ao,第一套,1
 6640,di-ih-tsih,第一隻,2
@@ -563,7 +563,7 @@
 6768,di-kyiu,第九,1
 497,di-kô-po-li,地加波利,3
 6765,di-loh,第六,1
-6522,di-loh-k'o,第六{抲},1
+6522,di-loh-k'o,第六{?抲},1
 2836,di-loh-ke,第六個,5
 4147,di-meng,提門,1
 2231,di-ming,地名,11
@@ -571,11 +571,11 @@
 5894,di-mo-t'a-keh,提摩太個,1
 5726,di-mô-t'a,提摩太,1
 6763,di-ng,第五,1
-6516,di-ng-k'o,第五{抲},1
+6516,di-ng-k'o,第五{?抲},1
 6566,di-ng-ke,第五個,3
 1958,di-nyi,第二,57
 5420,di-nyi-fu,第二副,5
-6503,di-nyi-k'o,第二{抲},1
+6503,di-nyi-k'o,第二{?抲},1
 1870,di-nyi-ke,第二個,10
 5400,di-nyi-keh,第二個,1
 2239,di-nyi-t'ao,第二套,4
@@ -588,12 +588,12 @@
 2867,di-pæh,第八,5
 6688,di-pæh-ke,第八個,1
 4627,di-s,第四,2
-6513,di-s-k'o,第四{抲},1
+6513,di-s-k'o,第四{?抲},1
 6481,di-s-ke,第四個,4
 5121,di-sing,提醒,14
 1650,di-sæn,第三,28
 6398,di-sæn-fu,第三副,1
-6506,di-sæn-k'o,第三{抲},1
+6506,di-sæn-k'o,第三{?抲},1
 6480,di-sæn-ke,第三個,5
 2240,di-sæn-t'ao,第三套,2
 5564,di-sæn-zeng,第三層,1
@@ -602,7 +602,7 @@
 5434,di-to,提多,22
 5499,di-to-keh,提多個,2
 1959,di-ts'ih,第七,5
-6551,di-ts'ih-k'o,第七{抲},2
+6551,di-ts'ih-k'o,第七{?抲},2
 6602,di-ts'ih-ke,第七個,4
 3983,di-ts-gyih,地之極,1
 2713,di-yiang,地垟,7
@@ -648,8 +648,8 @@
 5844,din-li,殿裏,2
 1908,din-liang,田糧,10
 1948,din-liang-keh,田糧個,4
-3666,din-mön,墊滿,3
-1486,din-mön,填滿,8
+3666,din-mön,墊滿,10
+1486,din-mön,填滿,1
 6607,din-nga-keh,殿外個,1
 1924,din-yiang,田垟,3
 5552,din-yiang-keh,田垟個,1
@@ -666,7 +666,7 @@
 5588,ding-tông-keh,定當個,1
 3679,ding-ze,定罪,15
 5557,djoh-nyih-keh,逐日個,1
-5644,djoh-ting,逐{點},6
+5644,djoh-ting,逐{丁},6
 2003,djong,重,9
 2636,djong,蟲,4
 1983,djong-djong,重重,2
@@ -742,8 +742,8 @@
 4231,do-siao,大小,1
 6727,do-t'e,大腿,1
 4582,do-teh-mang,大得猛,2
-3261,do-ting,大{點},1
-3245,do-ting-keh,大{點}個,1
+3261,do-ting,大{丁},1
+3245,do-ting-keh,大{丁}個,1
 3344,do-ts'e,大菜,2
 6094,do-tsing,馱進,3
 4782,do-tæn,大膽,2
@@ -1262,7 +1262,7 @@
 4466,hao-liang,好兩,1
 5347,hao-sing,好心,1
 5026,hao-ta,好歹,1
-6241,hao-ting,好{點},1
+6241,hao-ting,好{丁},1
 691,hao-z,好事,18
 2556,hao-ziang,好像,3
 958,he,海,37
@@ -1560,7 +1560,7 @@
 2848,ih-hyiang,一向,16
 792,ih-k'eh,一刻,3
 3953,ih-k'eo,一口,1
-6533,ih-k'o,一{抲},2
+6533,ih-k'o,一{?抲},2
 3940,ih-k'ông,一❓,1
 123,ih-ke,一個,598
 3817,ih-ke-sang,一個生,11
@@ -1621,7 +1621,7 @@
 2739,ih-tao,一到,6
 577,ih-tin,一點,1
 1437,ih-ting,一頂,15
-1864,ih-ting,一{點},48
+1864,ih-ting,一{丁},48
 3933,ih-ts,一支,1
 2271,ih-ts'iang,一{昶},21
 426,ih-ts'ih,一切,126
@@ -2165,7 +2165,7 @@
 2516,ku-mi,古米,1
 1494,ku-sin,過先,8
 5576,ku-tin,古典,1
-4836,ku-ting,過{點},1
+4836,ku-ting,過{丁},1
 3326,ku-tsiang,臌脹,2
 6013,ku-tsih-peh-t'ong,固執不通,1
 5531,ku-veng,過分,3
@@ -2180,7 +2180,7 @@
 543,kw'a-lôh,快樂,37
 2150,kw'a-lôh-keh,快樂個,2
 6105,kw'a-tao,快到,1
-610,kw'a-ting,快{點},9
+610,kw'a-ting,快{丁},9
 2820,kw'a-weh,快活,12
 5253,kw'a-weh-keh,快活個,2
 1567,kw'a-æn,快晏,4
@@ -2328,7 +2328,7 @@
 6376,ky'ing-cü-bôh-zih,輕嘴薄舌,1
 5472,ky'ing-keh,輕個,1
 2620,ky'ing-mæn,輕慢,6
-4845,ky'ing-ting,輕{點},1
+4845,ky'ing-ting,輕{丁},1
 5483,ky'ing-ts'a,欽差,2
 2633,ky'ing-yi,輕易,5
 2906,ky'ü-si,去世,8
@@ -3120,8 +3120,8 @@
 6329,m-to-siao,無多少,1
 5249,m-tsiu-keh-li,無周割禮,1
 960,m-tæn,無膽,3
-5694,m-u-tin,無烏玷,3
-6135,m-u-tin-keh,無烏玷個,1
+5694,m-u-tin,無污玷,3
+6135,m-u-tin-keh,無污玷個,1
 4232,m-veng,無分,3
 3921,m-vong,無縫,1
 6417,m-yih,無葉,1
@@ -3321,7 +3321,7 @@
 2001,mæn-dziang,漫長,3
 4793,mæn-mæn,慢慢,3
 4862,mæn-nying,蠻人,1
-6232,mæn-ting,慢{點},2
+6232,mæn-ting,慢{丁},2
 6501,mô,馬,19
 3183,mô-da,馬大,15
 2959,mô-da-di-ô,馬大提亞,1
@@ -4286,8 +4286,8 @@
 2282,si-siu,洗手,1
 1207,si-teng,西頓,9
 1212,si-teng-keh,西頓個,3
-6049,si-ting,細{點},1
-6050,si-ting-keh,細{點}個,1
+6049,si-ting,細{丁},1
+6050,si-ting-keh,細{丁}個,1
 5917,si-vi,細微,1
 6128,si-yüoh-keh,洗浴個,1
 696,si-zông,世上,154
@@ -4372,7 +4372,7 @@
 1158,siao-nying,小人,74
 2627,siao-nying-keh,小人個,3
 3270,siao-siao,小小,2
-5736,siao-ting,少{點},1
+5736,siao-ting,少{丁},1
 2822,siao-tsiu,燒酒,1
 2724,siao-yiang,小羊,32
 6310,siao-yiang-keh,小羊個,13
@@ -4481,7 +4481,7 @@
 1014,sing-t'ong,心痛,12
 273,sing-t'ong-keh,心痛個,2
 5533,sing-teh,信德,3
-3040,sing-ting,深{點},1
+3040,sing-ting,深{丁},1
 2428,sing-tsiu,新酒,6
 4341,sing-veng,審問,1
 4498,sing-veng,新聞,1
@@ -4534,7 +4534,7 @@
 1975,siu-pin,手邊,1
 6304,siu-shoh,收束,1
 2832,siu-si,手勢,2
-4898,siu-ting,收{點},1
+4898,siu-ting,收{丁},1
 5260,siu-tsih,守節,1
 374,siu-tsing,收進,10
 5524,siu-voh,收服,1
@@ -4738,7 +4738,7 @@
 4551,t'e-læh-nu,推喇奴,1
 4461,t'e-ngô-t'e-læh,推雅推喇,5
 3434,t'e-nyiang,推讓,2
-3673,t'e-pæn-ting,推板{點},1
+3673,t'e-pæn-ting,推板{丁},1
 3878,t'e-t'ôh,推託,3
 5090,t'e-tseng,推尊,4
 673,t'e-z,推辭,3
@@ -5069,7 +5069,7 @@
 3045,tin-tin,點點,2
 210,ting,頂,287
 6574,ting,叮,1
-1045,ting,{點},14
+1045,ting,{丁},14
 4316,ting,❓,1
 1799,ting,釘,49
 1179,ting-hao-keh,頂好個,1
@@ -5097,7 +5097,7 @@
 1074,to-mô,多馬,14
 4731,to-nyin,多年,2
 1260,to-siao,多少,28
-5511,to-ting,多{點},1
+5511,to-ting,多{丁},1
 3440,to-zia,多謝,3
 6735,toh,啄,1
 4959,toh-zih,篤實,6
@@ -5136,7 +5136,7 @@
 5758,ts'ah-zông,冊上,6
 6748,ts'ah-zông-keh,冊上個,1
 3039,ts'ang,撐,3
-3038,ts'ang-c'ih-ting,撐出{點},1
+3038,ts'ang-c'ih-ting,撐出{丁},1
 4261,ts'ang-k'e,撐開,2
 6054,ts'ang-kô,{?撐}家,1
 6056,ts'ang-kô-keh,{?撐}家個,1
@@ -5187,7 +5187,7 @@
 1562,ts'ih,七,5
 2055,ts'ih,切,3
 6755,ts'ih,尺,1
-6487,ts'ih-k'o,七{抲},4
+6487,ts'ih-k'o,七{?抲},4
 1332,ts'ih-ke,七個,62
 6449,ts'ih-keh,七個,1
 6758,ts'ih-kying,赤金,2
@@ -5292,7 +5292,7 @@
 4013,ts'ô-kô-ts'ô,叉加叉,1
 4939,ts'ô-lu,岔路,4
 5665,ts'ô-lu-keh,岔路個,3
-4420,ts'ô-ting,差{點},1
+4420,ts'ô-ting,差{丁},1
 3421,ts'ông,瘡,2
 2225,ts'ông,唱,5
 5963,ts'ông-doh,瘡毒,2
@@ -5359,7 +5359,7 @@
 4099,tsang-nao,爭鬧,5
 4915,tsang-teo,爭鬥,13
 4929,tsang-teo-keh,爭鬥個,4
-4642,tsang-ting,爭{點},3
+4642,tsang-ting,爭{丁},3
 1528,tsang-yün,爭遠,2
 5634,tsang-yün-keh,爭遠個,1
 1858,tsao,早,6
@@ -5765,8 +5765,8 @@
 2077,u-li-keh,{烏}裏個,8
 47,u-li-ô-keh,烏利亞個,1
 55,u-si-ô,烏西亞,2
-5933,u-tin,烏玷,5
-5619,u-tin-keh,烏玷個,3
+5933,u-tin,污玷,5
+5619,u-tin-keh,污玷個,3
 4570,veh-hön-keh,佛龕個,1
 2356,veng,墳,11
 2035,veng-deo,墳頭,1
@@ -6131,7 +6131,7 @@
 6742,ying-bön,營盤,1
 6213,ying-bön-nga,營盤外,2
 160,ying-dao,引導,13
-3851,ying-dong,{孕}動,1
+3851,ying-dong,濥動,1
 3569,ying-gao,贏爻,1
 3148,ying-gyü,刑具,1
 4661,ying-li,營裏,7
@@ -6176,7 +6176,7 @@
 2717,yiu-t'a-nying-keh,猶太人個,1
 4604,yiu-t'e-ku,猶推古,2
 2135,yiu-tin,油店,1
-5429,yiu-ting,有{點},2
+5429,yiu-ting,有{丁},2
 3496,yiu-veng,有份,32
 4737,yiu-yi,❓❓,2
 1374,yiu-yü,有餘,8
@@ -6256,7 +6256,7 @@
 6132,yüong-ngeo,雄牛,2
 891,yüong-nying,用人,28
 6320,yüong-nying-keh,用人個,1
-5918,yüong-ting,用{點},1
+5918,yüong-ting,用{丁},1
 442,yüong-wa,榮華,212
 1753,yüong-wa-keh,榮華個,20
 5568,yüong-wön,用完,1
